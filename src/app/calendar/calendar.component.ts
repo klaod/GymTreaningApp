@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Exercise } from '../shared/exercise';
 
 @Component({
   selector: 'app-calendar',
@@ -12,4 +13,7 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleOnSelect(exercise: Exercise) {
+    console.log(exercise);
+  }
 }

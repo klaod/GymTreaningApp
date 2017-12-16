@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CalendarComponent } from './calendar/calendar.component';
 import { LoginComponent } from './login/login.component';
+import { ExercisesComponent } from './exercises/exercises.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: "calendar",
     component: CalendarComponent
+  },
+  {
+    path: "exercises",
+    component: ExercisesComponent
   }
 ];
 
