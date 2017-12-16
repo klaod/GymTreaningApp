@@ -1,0 +1,7 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let ex of (exercises | async)"
+    (click)="onClick(ex);"
+  >
+    {{ex.name}}
+  </mat-list-item>  
+</mat-nav-list>
