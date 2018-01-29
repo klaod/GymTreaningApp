@@ -8,7 +8,7 @@ import { Unit } from '../../shared/unit';
 @Component({
   selector: 'app-exercise',
   templateUrl: './exercise.component.html',
-  styleUrls: ['./exercise.component.css']
+  styleUrls: ['./exercise.component.scss']
 })
 export class ExerciseComponent implements OnInit {
   name: string = "";
