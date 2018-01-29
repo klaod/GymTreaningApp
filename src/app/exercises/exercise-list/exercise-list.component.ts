@@ -8,6 +8,7 @@ import { Exercise } from '../../shared/exercise';
 import { Observable } from 'rxjs/Observable';
 
 import { ExerciseComponent } from '../exercise/exercise.component';
+import { getExercisesState } from '../../store/exercises-store/exercises-views';
 
 @Component({
   selector: 'app-exercise-list',
@@ -25,7 +26,7 @@ export class ExerciseListComponent implements OnInit {
   constructor(private store: Store<AppState>, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.exercises = this.store.select("exercises");
+    this.exercises = this.store.select(getExercisesState);
   }
 
   onClick(exercise: Exercise) {
