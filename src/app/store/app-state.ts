@@ -1,5 +1,5 @@
-import { Exercise } from '../shared/exercise';
+import { ExercisesDataState } from './exercises-store/exercises-data-state';
 
 export interface AppState {
-  exercises: Exercise[];
+  exercisesData: ExercisesDataState;
 }

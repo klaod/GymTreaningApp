@@ -5,16 +5,12 @@ import { MatToolbarModule, MatListModule, MatButtonModule } from '@angular/mater
 
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { exercisesReducer } from './store/exercises.store';
+import { reducers } from './store/app-reducers';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { CalendarModule } from './calendar/calendar.module';
 import { ExercisesModule } from './exercises/exercises.module';
-
-let reducers = {
-  exercises: exercisesReducer
-};
 
 @NgModule({
   declarations: [
