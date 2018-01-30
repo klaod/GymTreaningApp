@@ -1,10 +1,7 @@
-<p>
-  calendar works!
-</p>
-
-<app-exercise-list
-  selectMode=true
-  (onSelect)='handleOnSelect($event)'
->
-  
-</app-exercise-list>
+<div class="calendar-wrapper">
+  <mat-grid-list cols="7" rowHeight="1:1">
+    <mat-grid-tile *ngFor = "let day of daysInMonth | numToArray">
+        <app-day [day] = "day"></app-day>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

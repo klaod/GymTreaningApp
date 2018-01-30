@@ -7,8 +7,11 @@ import { Exercise } from '../shared/exercise';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-
-  constructor() { }
+  daysInMonth: number;
+  
+  constructor() {
+    this.daysInMonth = 30;
+  }
 
   ngOnInit() {
   }
