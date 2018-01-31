@@ -1,2 +1,5 @@
-<button class="add-btn" mat-mini-fab (click) = "createTraning()">+</button>
+<button class="add-btn" mat-mini-fab (click) = "openCreateTraningDialog()">+</button>
 {{day}}
+<ng-container *ngFor="let training of trainings">
+  <div data-draggable="true">{{training.time}}</div>
+</ng-container>

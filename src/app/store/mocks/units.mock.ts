@@ -1,4 +1,4 @@
-import { Unit } from '../../shared/unit';
+import { Unit } from '../../shared/unit.model';
 
 export const unitMock: Unit[] = [
   { id: 0, name: "кг." },

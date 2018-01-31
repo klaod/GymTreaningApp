@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {DayComponent} from '../calendar/day/day.component';
 
 @Component({
   selector: 'app-traning',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./traning.component.scss']
 })
 export class TraningComponent implements OnInit {
+  day: number;
 
-  constructor() { }
+  constructor(
+      public traningDialogRef: MatDialogRef<DayComponent>,
+      @Inject(MAT_DIALOG_DATA) public data: any
+  ) { }
 
   ngOnInit() {
+    this.day = this.data.day;
   }
-  
+
 }

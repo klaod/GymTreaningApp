@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {TraningComponent} from '../../traning/traning.component';
+import {Training} from '../../shared/training.model';
 
 @Component({
   selector: 'app-day',
@@ -6,16 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./day.component.scss']
 })
 export class DayComponent implements OnInit {
-  @Input() day:number;
-  
-  constructor() { 
-    
+  @Input() day: number;
+  @Input() trainings: Training[];
+
+  constructor(public createTraningDialog: MatDialog) {
+
   }
 
   ngOnInit() {
   }
-
-  createTraning():void {
-    
+  openCreateTraningDialog() {
+    const traningDialogRef = this.createTraningDialog.open(TraningComponent, {
+      data: this.day
+    });
   }
 }
