@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { CalendarModule } from './calendar/calendar.module';
 import { ExercisesModule } from './exercises/exercises.module';
+import {DragAndDropModule} from './drag-and-drop/drag-and-drop.module';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,12 @@ import { ExercisesModule } from './exercises/exercises.module';
     MatToolbarModule,
     MatButtonModule,
     MatListModule,
-    AppRoutingModule,    
+    AppRoutingModule,
     StoreModule.forRoot(reducers),
     LoginModule,
     CalendarModule,
-    ExercisesModule
+    ExercisesModule,
+    DragAndDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

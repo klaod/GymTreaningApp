@@ -7,8 +7,9 @@ import {Observable} from 'rxjs/Observable';
 import {getTrainingsState} from '../store/tranings-store/trainings-views';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/do';
 import * as moment from 'moment';
-import 'rxjs/add/operator/withLatestFrom';
 
 @Component({
   selector: 'app-calendar',
@@ -16,23 +17,20 @@ import 'rxjs/add/operator/withLatestFrom';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  daysInMonth: number;
   days: Observable<{day: number, trainings: Training[]}[]>;
   trainingsState: Observable<Training[]>;
   constructor(private store: Store<AppState>) {
-    const daysInMonthState: Observable<number> = Observable.of(Date.now()).map((date: number) => {
-      return moment(date).daysInMonth();
-    });
-    this.trainingsState = this.store.select(getTrainingsState);
-    this.days = daysInMonthState.withLatestFrom(this.trainingsState)
-      .map(([daysInMonth, trainings]: [number, Training[]]) => {
-        return new Array(daysInMonth).fill(0)
-          .map( (day: number, index: number) => {
-            const dayNum: number = index + 1;
-            return {
-              day: dayNum,
-              trainings: trainings.filter((training: Training) => moment(training.time).day() === dayNum)
-            };
+    this.trainingsState = store.select(getTrainingsState);
+    this.days = this.getDaysDataState();
+  }
+
+  getDaysDataState(): Observable<{day: number, trainings: Training[]}[]> {
+    return Observable.combineLatest(this.getCurrentMonthState(), this.trainingsState)
+      .map(([date, trainings]: [number, Training[]]) => {
+        return this.getDaysOfMonth(date)
+          .map((day: number, index: number) => {
+            const dayNum = index + 1;
+            return this.getDayData(dayNum, trainings);
           });
       });
   }
@@ -40,6 +38,20 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
   }
 
+  getDayData(dayNum: number, trainings: Training[]): {day: number, trainings: Training[]} {
+      return {
+        day: dayNum,
+        trainings: trainings.filter((training: Training) => moment(training.time).date() === dayNum)
+      };
+  }
+
+  getCurrentMonthState(): Observable<number> {
+    return Observable.of(Date.now());
+  }
+
+  getDaysOfMonth(date: number): number[] {
+    return new Array(moment(date).daysInMonth()).fill(0);
+  }
   handleOnSelect(exercise: Exercise) {
     console.log(exercise);
   }

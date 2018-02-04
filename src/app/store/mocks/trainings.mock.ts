@@ -4,6 +4,7 @@ import {exerciseSetMock} from './exerciseSet.mock';
 export const trainingsMock: TrainingsDataState = {
   trainings: [
     {
+      id: 4,
       time: Date.now(),
       setList: [exerciseSetMock]
     }

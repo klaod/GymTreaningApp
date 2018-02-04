@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {Component, OnInit, Input} from '@angular/core';
+import {MatDialog, MatCard} from '@angular/material';
 import {TraningComponent} from '../../traning/traning.component';
 import {Training} from '../../shared/training.model';
+
 
 @Component({
   selector: 'app-day',
@@ -12,14 +13,15 @@ export class DayComponent implements OnInit {
   @Input() day: number;
   @Input() trainings: Training[];
 
-  constructor(public createTraningDialog: MatDialog) {
+  constructor(public createTrainingDialog: MatDialog) {
 
   }
 
   ngOnInit() {
   }
-  openCreateTraningDialog() {
-    const traningDialogRef = this.createTraningDialog.open(TraningComponent, {
+
+  openCreateTrainingDialog() {
+    this.createTrainingDialog.open(TraningComponent, {
       data: this.day
     });
   }

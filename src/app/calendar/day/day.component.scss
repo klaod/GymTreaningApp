@@ -1,7 +1,14 @@
+@mixin btn-size($btn-size){
+  width: $btn-size;
+  height: $btn-size;
+  line-height: $btn-size;
+}
+.day-trainings-list{
+  width: 100px;
+  height: 55px;
+}
 .add-btn{
-    width:20px;
-    height:20px;
-    line-height: 20px;
+    @include btn-size(17px);
     background-color: #ffffff;
 
     /deep/ span {
@@ -9,4 +16,32 @@
         line-height: unset;
         color: #000000;
     }
+}
+.day-cell-header{
+  flex-flow: column;
+  align-items: flex-end;
+  padding: 10px 4px;
+  height: 25px;
+  background: #FFFFFF;
+  color: #474646;
+  opacity: 0.5;
+  font-size: 1.2em;
+}
+.day-cell-footer{
+  flex-flow: column;
+  align-items: flex-end;
+  padding: 0 4px;
+  height: 25px;
+  background: #FFFFFF;
+  color: #474646;
+  opacity: 0.5;
+  font-size: 1.2em;
+}
+
+.day-cell-traning{
+  font-size: 0.7em;
+  padding: 0px 10px;
+  height: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }

@@ -1,3 +1,12 @@
 .calendar-wrapper{
     width: 800px;
+
+  .day{
+    //  background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.12rem;
+      //display: flex;
+      //flex-flow: column;
+      //justify-content: end !important;
+  }
 }

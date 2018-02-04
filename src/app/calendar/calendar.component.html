@@ -1,6 +1,6 @@
 <div class="calendar-wrapper">
   <mat-grid-list cols="7" rowHeight="1:1">
-    <mat-grid-tile *ngFor = "let day of days | async">
+    <mat-grid-tile *ngFor = "let day of days | async" class="day">
         <app-day [day] = "day.day" [trainings]="day.trainings"></app-day>
     </mat-grid-tile>
   </mat-grid-list>

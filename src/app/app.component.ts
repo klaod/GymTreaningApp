@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DragAndDropService} from './drag-and-drop/drag-and-drop.service';
 
 interface MenuLink {
   caption: string;
@@ -23,4 +24,8 @@ const links: MenuLink[] = [
 })
 export class AppComponent {
   links: MenuLink[] = links;
+  constructor(private dragAndDropService: DragAndDropService) {
+
+  }
+
 }
