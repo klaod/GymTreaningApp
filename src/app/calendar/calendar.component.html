@@ -1,7 +1,16 @@
-<div class="calendar-wrapper">
-  <mat-grid-list cols="7" rowHeight="1:1">
-    <mat-grid-tile *ngFor = "let day of days | async" class="day">
+ <div class="calendar-wrapper">
+    <mat-toolbar color="accent">
+      <mat-toolbar-row>
+        <span>Календар</span>
+        <!--<span class="example-spacer"></span>-->
+        <!--<mat-icon class="example-icon">favorite</mat-icon>-->
+        <!--<mat-icon class="example-icon">delete</mat-icon>-->
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-grid-list cols="7" rowHeight="120px" class ="mat-grid-list">
+      <mat-grid-tile *ngFor = "let day of days | async" class="day-cell">
         <app-day [day] = "day.day" [trainings]="day.trainings"></app-day>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+

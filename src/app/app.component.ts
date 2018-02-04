@@ -8,12 +8,12 @@ interface MenuLink {
 
 const links: MenuLink[] = [
   {
-    caption: "Календарь",
-    path: "calendar"
+    caption: 'Головна',
+    path: 'calendar'
   },
   {
-    caption: "Упражнения",
-    path: "exercises"
+    caption: 'Вправи',
+    path: 'exercises'
   }
 ];
 

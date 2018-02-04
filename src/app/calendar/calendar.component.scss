@@ -1,12 +1,18 @@
-.calendar-wrapper{
-    width: 800px;
+@import '../sass-mixins/mixins.scss';
+$calendarBorder: 1px solid rgba(77, 84, 216, 0.32);
 
-  .day{
-    //  background-clip: border-box;
-      border: 1px solid rgba(0, 0, 0, 0.125);
-      border-radius: 0.12rem;
-      //display: flex;
-      //flex-flow: column;
-      //justify-content: end !important;
-  }
+.calendar-wrapper{
+  width: 80%;
+}
+:host{
+  @extend %flex-content-container;
+}
+.day-cell{
+    outline: $calendarBorder;
+   // border-right: $calendarBorder;
+}
+.mat-grid-list {
+  width: calc(100% - 2px);
+  border-left:$calendarBorder;
+  border-top:$calendarBorder;
 }

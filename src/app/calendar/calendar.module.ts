@@ -10,6 +10,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import {TraningModule} from '../traning/traning.module';
 import {TraningComponent} from '../traning/traning.component';
 import {DragulaModule} from 'ng2-dragula';
+import {MatToolbarModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {DragulaModule} from 'ng2-dragula';
     MatButtonModule,
     PipesModule,
     TraningModule,
-    DragulaModule
+    DragulaModule,
+    MatToolbarModule
   ],
   declarations: [CalendarComponent, DayComponent],
   entryComponents: [TraningComponent]

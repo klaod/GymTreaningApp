@@ -16,6 +16,7 @@ export class TraningComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    debugger;
     this.day = this.data.day;
   }
 
