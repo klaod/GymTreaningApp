@@ -1,3 +1,18 @@
+@import '../sass-mixins/mixins.scss';
+$calendarBorder: 1px solid rgba(77, 84, 216, 0.32);
+
 .calendar-wrapper{
-    width: 800px;
+  width: 80%;
+}
+:host{
+  @extend %flex-content-container;
+}
+.day-cell{
+    outline: $calendarBorder;
+   // border-right: $calendarBorder;
+}
+.mat-grid-list {
+  width: calc(100% - 2px);
+  border-left:$calendarBorder;
+  border-top:$calendarBorder;
 }

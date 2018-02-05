@@ -1,2 +1,19 @@
-<button class="add-btn" mat-mini-fab (click) = "createTraning()">+</button>
-{{day}}
+<div class ="day-cell-wrapper">
+  <div class ="day-cell-header">
+    {{ day }}
+  </div>
+
+  <mat-list [dragula]="'training-bag'" [attr.data-day]="day" class="day-trainings-list">
+    <mat-list-item *ngFor="let training of trainings"
+                   data-draggable="true"
+                   [attr.data-id]="training.id"
+                   class ="day-cell-traning" >
+      <!--{{ training.id }}-->
+     16.30
+    </mat-list-item>
+  </mat-list>
+
+  <mat-grid-tile-footer class="day-cell-footer"  [@footerState] = footerState>
+    <button class="add-training-btn" mat-mini-fab (click) = "openCreateTrainingDialog()">+</button>
+  </mat-grid-tile-footer>
+</div>
